@@ -1,5 +1,5 @@
 {
-  "name": "hapi-wrapper",
+  "name": "@matthewglover/hapi-wrapper",
   "version": "0.1.0",
   "description": "Promise-based wrapper around Hapi",
   "main": "index.js",
