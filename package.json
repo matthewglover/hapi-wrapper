@@ -1,6 +1,6 @@
 {
   "name": "@matthewglover/hapi-wrapper",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Promise-based wrapper around Hapi",
   "main": "index.js",
   "scripts": {
