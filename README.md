@@ -13,7 +13,7 @@ In addition, it includes sensible defaults, such as serving static resources fro
 
 ## How
 
-The library can be included in a project using `npm install --save git+https://github.com/matthewglover/hapi-wrapper.git`.
+The library can be included in a project using `npm install --save @matthewglover/hapi-wrapper`.
 
 This wrapper libraries has been tested with Node 6+.
 
