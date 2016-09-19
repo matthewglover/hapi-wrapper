@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/matthewglover/hapi-wrapper.svg?branch=master)](https://travis-ci.org/matthewglover/hapi-wrapper) [![Coverage Status](https://coveralls.io/repos/github/matthewglover/hapi-wrapper/badge.svg?branch=master)](https://coveralls.io/github/matthewglover/hapi-wrapper?branch=master)
+[![Build Status](https://travis-ci.org/matthewglover/hapi-wrapper.svg?branch=master)](https://travis-ci.org/matthewglover/hapi-wrapper) [![Coverage Status](https://coveralls.io/repos/github/matthewglover/hapi-wrapper/badge.svg?branch=master)](https://coveralls.io/github/matthewglover/hapi-wrapper?branch=master) [![Dependencies](https://david-dm.org/matthewglover/hapi-wrapper.svg)](https://david-dm.org/matthewglover/hapi-wrapper)
 
 # Hapi Wrapper
 
