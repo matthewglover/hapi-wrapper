@@ -5,19 +5,6 @@ import provisionInjectPromise from '../test-helpers/provision-inject-promise';
 const handler = (req, reply) => reply('test route works');
 const testRoute = { method: 'GET', path: '/test', handler };
 
-test('registerPlugins sets up Inert to serve files from ./public folder', async t => {
-  const server =
-    await createServer()
-    .then(setConnection())
-    .then(registerPlugins())
-    .then(provisionInjectPromise);
-
-  const reply =
-    await server.injectPromise({ method: 'GET', url: '/test.txt' });
-
-  t.regex(reply.result, /Hello Hapi World!/);
-});
-
 test('registerPlugins registers optional array of Hapi Plugins', async t => {
   const register = (server, options, next) => {
     server.route(testRoute);
@@ -46,7 +33,7 @@ test('registerPlugins rejects a Promise when called with non-array', async t => 
     .then(registerPlugins(''));
 
   const err = await t.throws(server);
-  t.regex(err.message, /Invalid plugin type: expected array/);
+  t.regex(err.message, /Cannot read property 'register' of undefined/);
 });
 
 test('registerPlugins rejects a Promise when plugin throws async err', async t => {

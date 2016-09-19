@@ -7,15 +7,15 @@ A Promise-based wrapper around Hapi.
 
 ## Why
 
-Hapi has a number of hooks for configuring a server, some of which can be asynchronous. Hapi Wrapper provides a series of simple functions which use Promises to allow the different configuration steps to be composed together.
+Hapi has a number of hooks for configuring a server, some of which can be asynchronous. Hapi Wrapper uses Promises and simple functions which allow the different configuration steps to be composed together.
 
-In addition, it includes sensible defaults, such as serving static resources from a public folder using Inert.
+Hapi-Wrapper also includes Inert by default when you add plugins, with routes configured to serve static resources from the `./public` folder.
 
 ## How
 
-The library can be included in a project using `npm install --save @matthewglover/hapi-wrapper`.
+To include in your project run:
 
-This wrapper libraries has been tested with Node 6+.
+`npm install --save @matthewglover/hapi-wrapper`.
 
 To create a server:
 
