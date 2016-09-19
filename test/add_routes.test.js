@@ -43,8 +43,8 @@ test('addRoutes rejects a Promise when called without valid connection', async t
   t.plan(2);
   const server =
     createServer()
-    .then(addRoutes(''));
+    .then(addRoutes([]));
 
   const err = await t.throws(server);
-  t.regex(err.message, /Invalid route options/);
+  t.regex(err.message, /Cannot add a route without any connections/);
 });
