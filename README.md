@@ -9,7 +9,7 @@ A Promise-based wrapper around Hapi.
 
 Hapi has a number of hooks for configuring a server, some of which can be asynchronous. Hapi Wrapper uses Promises and simple functions which allow the different configuration steps to be composed together.
 
-Hapi-Wrapper also includes Inert by default when you add plugins, with routes configured to serve static resources from the `./public` folder.
+Hapi-Wrapper also includes Inert by default when you add routes configured to serve static resources from the `./public` folder.
 
 ## How
 
@@ -20,18 +20,19 @@ To include in your project run:
 To create a server:
 
 ```javascript
-const hapiWrapper = require('hapi-wrapper');
+const {
+  createServer,
+  registerPlugins,
+  addRoutes,
+  startServer } = require('@matthewglover/hapi-wrapper');
 
 const port = process.env.PORT || 4000;
-const connectionOptions = { port };
-const plugins = [];
-const routes = [];
 
-hapiWrapper.createServer()
-  .then(hapiWrapper.setConnection(connectionOptions))
-  .then(hapiWrapper.registerPlugins(plugins))
-  .then(hapiWrapper.addRoutes(routes))
-  .then(hapiWrapper.startServer)
+createServer()
+  .then(setConnection({ port }))
+  .then(registerPlugins())
+  .then(addRoutes())
+  .then(startServer)
   .then(server => console.log(`Server running at: ${server.info.uri}`))
   .catch(err => console.log(err));
 ```
