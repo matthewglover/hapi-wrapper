@@ -22,6 +22,7 @@ To create a server:
 ```javascript
 const {
   createServer,
+  setConnection,
   registerPlugins,
   addRoutes,
   startServer } = require('@matthewglover/hapi-wrapper');
