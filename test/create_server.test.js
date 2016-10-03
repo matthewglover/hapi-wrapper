@@ -14,7 +14,7 @@ test('createServer rejects a Promise when called with invalid data', async t => 
   t.regex(err.message, /Invalid server options/);
 });
 
-test('registerPlugins sets up Inert to serve files from ./public folder', async t => {
+test('createServer and addRoutes sets up Inert to serve files from ./public folder', async t => {
   const server =
     await createServer()
     .then(setConnection())

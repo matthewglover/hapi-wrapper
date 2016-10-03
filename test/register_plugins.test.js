@@ -5,7 +5,7 @@ import provisionInjectPromise from '../test-helpers/provision-inject-promise';
 const handler = (req, reply) => reply('test route works');
 const testRoute = { method: 'GET', path: '/test', handler };
 
-test('registerPlugins registers optional array of Hapi Plugins', async t => {
+test('registerPlugins registers array of Hapi Plugins', async t => {
   const register = (server, options, next) => {
     server.route(testRoute);
     next();
@@ -23,6 +23,16 @@ test('registerPlugins registers optional array of Hapi Plugins', async t => {
     await server.injectPromise({ method: 'GET', url: '/test' });
 
   t.regex(reply.result, /test route works/);
+});
+
+test('registerPlugins plugins array is optional', t => {
+  const server =
+    createServer()
+    .then(setConnection())
+    .then(registerPlugins())
+    .then(provisionInjectPromise);
+
+  t.notThrows(server);
 });
 
 test('registerPlugins rejects a Promise when called with non-array', async t => {
