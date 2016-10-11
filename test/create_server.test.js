@@ -26,3 +26,31 @@ test('createServer and addRoutes sets up Inert to serve files from ./public fold
 
   t.regex(reply.result, /Hello Hapi World!/);
 });
+
+// eslint-disable-next-line max-len
+test('createServer and addRoutes (with custom path of /public/{param*}) sets up Inert to serve files from ./public folder at /public', async t => {
+  const server =
+    await createServer()
+    .then(setConnection())
+    .then(addRoutes(undefined, { path: '/public/{param*}' }))
+    .then(provisionInjectPromise);
+
+  const reply =
+    await server.injectPromise({ method: 'GET', url: '/public/test.txt' });
+
+  t.regex(reply.result, /Hello Hapi World!/);
+});
+
+test(`createServer and addRoutes can be setup to prevent Inert from serving
+      any static files with options { setStaticRoutes: false }`, async t => {
+  const server =
+    await createServer()
+    .then(setConnection())
+    .then(addRoutes(undefined, { setStaticRoutes: false }))
+    .then(provisionInjectPromise);
+
+  const reply =
+    await server.injectPromise({ method: 'GET', url: '/test.txt' });
+
+  t.is(reply.result.statusCode, 404);
+});
