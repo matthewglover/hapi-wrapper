@@ -4,10 +4,11 @@
   "description": "Promise-based wrapper around Hapi",
   "main": "index.js",
   "scripts": {
-    "precommit": "npm run lint && nyc --reporter=lcov npm test && npm run coverage",
     "coverage": "nyc check-coverage --lines 100, --functions 100, --branches 100",
     "lint": "eslint './+(lib|test)/**/*.js'",
-    "test": "NODE_ENV=test ava --verbose"
+    "precommit": "npm run lint && nyc --reporter=lcov npm test && npm run coverage",
+    "test": "NODE_ENV=test ava --verbose",
+    "test-coverage-report": "nyc npm run test report --reporter=lcov"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   "homepage": "https://github.com/matthewglover/hapi-wrapper#readme",
   "dependencies": {
     "hapi": "^15.0.2",
-    "inert": "^4.0.2"
+    "inert": "^4.0.2",
+    "ramda": "^0.22.1"
   },
   "devDependencies": {
     "ava": "^0.16.0",
